@@ -5,7 +5,7 @@ A simple viewer for static STAC catalogs.
 ## Development
 
 1. `npm ci`
-2. `cp -r node_modules/@openeo/vue-components/assets ./assets`
+2. `cp -r node_modules/@openeo/vue-components/assets ./`
 3. Open [index.html](./index.html) and start editing it
 
 ## Usage
