@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini STAC Browser</title>
+    <script defer src="assets/openeo.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+    </style>
+</head>
+<body>
+  <openeo-stac id="stac"></openeo-stac>
+  <script>
+    const url = new URL(window.location.href);
+    const stacUrl = url.hash.substring(1);
+    const element = document.getElementById('stac');
+    element.setAttribute('url', stacUrl);
+  </script>
+</body>
+</html>
