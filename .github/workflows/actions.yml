@@ -1,0 +1,21 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 'lts/*'
+      - uses: actions/checkout@v4
+      - run: npm install
+      - run: cp -r node_modules/@openeo/vue-components/assets ./
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          user_name: 'moreGeo CI'
+          user_email: ci@moregeo.it
