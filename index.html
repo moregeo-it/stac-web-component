@@ -5,20 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini STAC Browser</title>
     <script defer src="assets/openeo.min.js"></script>
-    <style>
+    <style id="styles">
       body {
-        font-family: Arial, sans-serif;
-        margin: 1rem;
+        margin: 0;
+        padding: 0;
+        font-family: "IBM Plex Sans", "IBM Plex Sans Fallback", sans-serif;
+        color: #202020;
+        font-size: 1.1rem;
+      }
+      a {
+        color: rgba(0, 0, 0, 0.608);
+        text-decoration: none;
+      }
+      a:hover {
+        color: #000000;
+        text-decoration: none;
+      }
+      code {
+        font-family: 'Berkeley Mono', Menlo, Consolas, monospace;
       }
     </style>
 </head>
-<body>
+<body style="margin: 1rem">
   <openeo-stac id="stac"></openeo-stac>
   <script>
     const url = new URL(window.location.href);
     const stacUrl = url.hash.substring(1);
-    const element = document.getElementById('stac');
-    element.setAttribute('url', stacUrl);
+    const component = document.getElementById('stac');
+    component.setAttribute('url', stacUrl);
+    const css = document.getElementById("styles").cloneNode(true);
+    component.shadowRoot.appendChild(css);
   </script>
 </body>
 </html>
+
+  <script>
+  </script>
