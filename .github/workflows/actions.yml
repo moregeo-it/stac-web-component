@@ -12,10 +12,13 @@ jobs:
           node-version: 'lts/*'
       - uses: actions/checkout@v4
       - run: npm install
-      - run: cp -r node_modules/@openeo/vue-components/assets ./
+      - run: |-
+          mkdir dist
+          cp -r node_modules/@openeo/vue-components/assets ./dist
+          cp index.html ./dist
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: dist
           user_name: 'moreGeo CI'
           user_email: ci@moregeo.it
