@@ -33,8 +33,12 @@
     const stacUrl = url.hash.substring(1);
     const component = document.getElementById('stac');
     component.setAttribute('url', stacUrl);
-    const css = document.getElementById("styles").cloneNode(true);
-    component.shadowRoot.appendChild(css);
+    const intervalId = window.setInterval(() => {
+      if (!component.shadowRoot) return;
+      const css = document.getElementById("styles").cloneNode(true);
+      component.shadowRoot.appendChild(css);
+      window.clearInterval(intervalId);
+    }, 100);
   </script>
 </body>
 </html>
